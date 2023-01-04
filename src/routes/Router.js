@@ -7,10 +7,12 @@ import RecipeDetailsPage from "../pages/RecipeDetailsPage/RecipeDetailsPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage"
 import RecipesListPage from "../pages/RecipesListPage/RecipesListPage"
 import ErrorPage from "../pages/ErrorPage/ErrorPage"
+import Header from "../components/Header/Header"
 
 const Router = () => {
     return (
         <BrowserRouter>
+        <Header/>
             <Routes>
                 <Route path="/login" element={<LoginPage />}>
                 </Route>
