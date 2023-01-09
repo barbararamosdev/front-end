@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button'
 import { InputsContainer, SignUpFormContainer } from "./styled"
 import { useNavigate } from "react-router-dom"
 import useForm from "../../hooks/useForm"
-
-
+import { BASE_URL } from "../../constants/urls"
+import axios from "axios"
 
 const SignUpForm = () => {
     const navigate = useNavigate()
@@ -15,9 +15,16 @@ const SignUpForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        console.log(form)
+        SignUp()
         // login(form, clear, navigate, setRightButtonText, setIsLoading)
     }
+
+    const SignUp = () => {
+        axios.post(`${BASE_URL}/user/signup`, form)
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
+    }
+
     return (
 
         <form onSubmit={onSubmitForm}>

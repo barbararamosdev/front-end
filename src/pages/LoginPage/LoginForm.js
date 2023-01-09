@@ -16,13 +16,17 @@ const LoginForm = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault()
+        login()
     // login(form, clear, navigate, setRightButtonText, setIsLoading)
     }
 
     const login = () => {
-        axios.post (`${BASE_URL}/user/login`, form)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
+        axios.post(`${BASE_URL}/user/login`, form)
+        .then((res) => {
+            localStorage.setItem("token", res.data.token)
+            clear()
+        })
+        .catch((err) => alert("Erro no login"))
     }
     return (
 
